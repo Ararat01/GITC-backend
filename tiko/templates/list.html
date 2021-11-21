@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% block title %}Last products{% endblock %}
+
+{% block content %}
+
+    {% if latest_products_list %}
+        {% for a in latest_products_list %}
+            <p class="list_list"><a href="{% url 'detail' pk=a.id %}">{{a.name}}</a></p>
+        {% endfor %}
+    {% else %}
+        No products yet 
+    {% endif %}
+    <a href="{% url 'save' %}">Add new product</a>
+
+{% endblock %}

@@ -1,0 +1,151 @@
+* {
+	box-sizing: border-box;
+}
+
+.det_h2 {
+	color: hsl(240, 76%, 42%);
+	font-family: 'Roboto';
+	font-weight: 700;
+	font-size: 45px;
+	margin: 0;
+}
+.det_p {
+	color: hsl(240, 48%, 50%);
+	font-family: 'Roboto';
+	font-weight: 300;
+	font-size: 25px;
+	max-width: 700px;
+}
+.det_h3 {
+	color: hsl(240, 76%, 42%);
+	font-family: 'Roboto';
+	font-weight: 500;
+	font-size: 35px;
+	margin: 0;
+	margin-bottom: 15px;
+}
+.date_em {
+	color: rgb(119, 119, 119);
+	margin-right: 20px;
+}
+.list_form, .upd_form {
+	display: inline-block;
+	background-image: linear-gradient(315deg, #131aff, #140552);
+	padding: 40px;
+	border-radius: 30px;
+	box-shadow: 0px 0px 20px 0px;
+}
+.list_form label, .upd_form label {
+	font-family: 'Roboto';
+	font-weight: 300;
+	font-size: 25px;
+	color: white;
+}
+.list_form input, .upd_form input {
+	height: 30px;
+	border-radius: 5px;
+	border: none;
+	padding: 10px;
+	margin-left: 10px;
+}
+.list_form textarea, .upd_form textarea {
+	padding: 10px;
+	width: 100%;
+	border-radius: 5px;
+	border: none;
+}
+.list_form button, .upd_form button {
+	width: 100%;
+	padding: 15px 20px;
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 20px;
+	border: 2px solid white;
+	border-radius: 5px;
+	color: hsl(240, 76%, 42%);
+	cursor: pointer;
+	background-color: white;
+	transition: 0.3s;
+}
+.list_form button:hover, .upd_form button:hover {
+	transition: 0.3s;
+	color: white;
+	background-color: hsl(240, 76%, 42%);
+}
+.list_list a {
+	display: inline-block;
+    text-decoration: none;
+	font-family: 'Roboto';
+	font-weight: 600;
+	font-size: 35px;
+	color: hsl(240, 76%, 42%);
+}
+.list_list a::after {
+	content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: hsl(240, 76%, 42%);
+    transition: width .3s;
+}
+.list_list a:hover::after {
+    width: 100%;
+    transition: width .3s;
+}
+
+#updform, #info_div.active {
+	display: none;
+}
+#updform.active, #info_div {
+	display: inline-block;
+}
+
+.actions_form button, .actions_form a {
+	text-decoration: none;
+	text-align: center;
+	padding: 5px 30px;
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 20px;
+	border: 2px solid hsl(240, 76%, 42%);
+	border-radius: 5px;
+	color: hsl(240, 76%, 42%);
+	cursor: pointer;
+	background-color: white;
+	transition: 0.3s;
+	margin-right: 10px;
+}
+@media screen and (max-width:500px) {
+	.action_buttons {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	.actions_form button, .actions_form a {
+		margin-bottom: 10px;
+		padding:5px 15px;
+	}
+}
+@media screen and (max-width:350px) {
+	.action_buttons {
+		flex-direction: column;
+		align-content: center
+	}
+}
+.actions_form a:hover {
+	transition: 0.3s;
+	color: white;
+}
+.actions_form button:hover, .actions_form a:hover {
+	transition: 0.3s;
+	color: white;
+	background-color: hsl(240, 76%, 42%);
+}
+.upd_flex {
+	max-width: 700px !important;
+	width: 100% !important;
+}
+.date {
+	display: flex;
+	flex-wrap: wrap;
+}

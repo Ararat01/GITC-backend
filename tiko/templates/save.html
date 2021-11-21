@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% block title %}Title{% endblock %}
+    
+{% block content %}
+    <form class="list_form" action="" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button style="padding: 10px 70px;" type="submit">Add Product</button>
+    </form>
+    <script>
+    </script>
+{% endblock %}
