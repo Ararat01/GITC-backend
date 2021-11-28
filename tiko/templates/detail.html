@@ -12,7 +12,7 @@
       <h3 class="det_h3">{{product.product_price}}</h3>
       <div class="date">
         <em class="date_em">Crate Date: {{product.created_at}}</em>
-        {% if product.creat_equal_update == False %}
+        {% if product.updated_at != product.created_at %}
             <em class="date_em">Upadate Date: {{product.updated_at}}</em>
         {% endif %}
       </div>
@@ -30,14 +30,14 @@
         <button style="padding: 10px 70px;" type="submit">Update</button>
     </form>
 
-     <!-- <form class="actions_form" action="" method="POST">
+     <form class="actions_form" action="{% url 'del' %}" method="POST">
         {% csrf_token %}
         <input type="hidden" name="id" value="{{product.id}}">
         <br>
         <div class="action_buttons">
           <a href="{% url 'main' %}">Back</a><button type="submit">Delete</button><button type="button" onclick="foo()" id="updbut">Update</button>
         </div>
-    </form> -->
+    </form>
     <script>
         function foo() {
             document.getElementById('updform').classList.toggle('active')

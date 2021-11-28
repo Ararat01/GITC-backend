@@ -18,12 +18,12 @@ from django.urls import path
 from tiko.views import ProductsList, ProductsDetailView, ProductCreateView
 from tiko import views
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('main/', ProductsList.as_view(), name='main'),
     path('main/<int:pk>/', ProductsDetailView.as_view(), name = 'detail'),
-    path('main/save/', ProductCreateView.as_view(), name = 'save'),
-    #path('main/del/', views.delprod, name = 'del'),
+    path('main/save', ProductCreateView.as_view(), name = 'save'),
+    path('main/del', views.delprod, name = 'del'),
     path('main/update', views.updateprod, name = 'update'),
+    path('main/back', views.back, name = 'back')
 ]
