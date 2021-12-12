@@ -1,28 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
-{% block title %}{{product.name}}{% endblock %}
+{% block title %}Title{% endblock %}
     
 {% block content %}
-    <form class="list_form" action="{% url 'save' %}" method="POST">
+    <form class="list_form" action="" method="POST">
       {% csrf_token %}
-      <label for="name">Name: </label>
-      <input type="text" name="name" id="name" placeholder="Product name"> <br><br>
-      <label for="prod_info">Information: </label><br>
-      <textarea rows="10" cols="27" name="info" id="prod_info" placeholder="Product information..."></textarea><br><br>
-      <label for="price">Price: </label>
-      <input type="text" placeholder="xxxxx$" id="price" name="price"><br><br>
+      {{ form.as_p }}
       <button style="padding: 10px 70px;" type="submit">Add Product</button>
     </form>
-
-     <form class="actions_form" action="{% url 'del' %}" method="POST">
-        {% csrf_token %}
-        <input type="hidden" name="id" value="{{product.id}}">
-        <br>
-        <div class="action_buttons">
-          <a href="{% url 'main' %}">Back</a><button type="submit">Delete</button>
-        </div>
-    </form>
-    <script>
-    </script>
 {% endblock %}

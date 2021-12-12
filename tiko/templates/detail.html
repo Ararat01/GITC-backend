@@ -12,42 +12,15 @@
       <h3 class="det_h3">{{product.product_price}}</h3>
       <div class="date">
         <em class="date_em">Crate Date: {{product.created_at}}</em>
-        {% if product.updated_at != product.created_at %}
+        {% if product.creat_equal_update == False %}
             <em class="date_em">Upadate Date: {{product.updated_at}}</em>
         {% endif %}
       </div>
       <br><br>
+      <a class="atag" href="{%url 'main'%}">BACK</a>
+      <form method="POST" action="{%url 'del' pk=product.pk%}">
+        {% csrf_token%}
+        <button>DELETE</button>
+      </form>
     </div>
-    <form class="upd_form" action="{% url 'update' %}" method="POST" id="updform">
-        {% csrf_token %}
-        <input type="hidden" name="id" value="{{product.id}}">
-        <label for="name">Name: </label>
-        <input type="text" name="name" id="name" value="{{product.name}}"> <br><br>
-        <label for="prod_info">Information: </label><br>
-        <textarea rows="10" cols="27" name="info" id="prod_info" placeholder="Product information...">{{product.product_info}}</textarea><br><br>
-        <label for="price">Price: </label>
-        <input type="text" value="{{product.product_price}}" id="price" name="price"><br><br>
-        <button style="padding: 10px 70px;" type="submit">Update</button>
-    </form>
-
-     <form class="actions_form" action="{% url 'del' %}" method="POST">
-        {% csrf_token %}
-        <input type="hidden" name="id" value="{{product.id}}">
-        <br>
-        <div class="action_buttons">
-          <a href="{% url 'main' %}">Back</a><button type="submit">Delete</button><button type="button" onclick="foo()" id="updbut">Update</button>
-        </div>
-    </form>
-    <script>
-        function foo() {
-            document.getElementById('updform').classList.toggle('active')
-            document.getElementById('info_div').classList.toggle('active')
-            var x = document.getElementById("updbut");
-              if (x.innerHTML === "Update") {
-                x.innerHTML = "Cancel";
-              } else {
-                x.innerHTML = "Update";
-              }
-            }
-    </script>
 {% endblock %}
