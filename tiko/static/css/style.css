@@ -68,7 +68,6 @@ button {
 }
 button:hover {
 	transition: 0.3s;
-	color: white;
 	background-color: hsl(240, 76%, 42%);
 }
 .atag {
@@ -131,13 +130,9 @@ button, a {
 		align-content: center
 	}
 }
-a:hover {
-	transition: 0.3s;
-	color: white;
-}
+
 button:hover {
 	transition: 0.3s;
-	color: white;
 	background-color: hsl(240, 76%, 42%);
 }
 .upd_flex {
@@ -147,4 +142,11 @@ button:hover {
 .date {
 	display: flex;
 	flex-wrap: wrap;
+}
+
+.toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 70px;
 }

@@ -2,25 +2,27 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% block title %}{{product.name}}{% endblock %}
-    
+
 {% block content %}
-    <div id="info_div">
-      <h2 class="det_h2">{{product.name}}</h2>
+<div id="info_div">
+  <img src="{% get_media_prefix %}{{product.image}}" width="200px" alt="">
+  <h2 class="det_h2">{{product.name}}</h2>
 
-      <p class="det_p">{{product.product_info}}</p>
+  <p class="det_p">{{product.product_info}}</p>
 
-      <h3 class="det_h3">{{product.product_price}}</h3>
-      <div class="date">
-        <em class="date_em">Crate Date: {{product.created_at}}</em>
-        {% if product.creat_equal_update == False %}
-            <em class="date_em">Upadate Date: {{product.updated_at}}</em>
-        {% endif %}
-      </div>
-      <br><br>
-      <a class="atag" href="{%url 'main'%}">BACK</a>
-      <form method="POST" action="{%url 'del' pk=product.pk%}">
-        {% csrf_token%}
-        <button>DELETE</button>
-      </form>
-    </div>
+  <h3 class="det_h3">{{product.product_price}}</h3>
+  <div class="date">
+    <em class="date_em">Crate Date: {{product.created_at}}</em>
+    {% if product.creat_equal_update == False %}
+    <em class="date_em">Upadate Date: {{product.updated_at}}</em>
+    {% endif %}
+  </div>
+  <br><br>
+  <a class="atag" href="{%url 'main' %}">BACK</a>
+  <a href="{% url 'update' pk=product.pk %}">UPDATE</a>
+  <form method="POST" action="{% url 'del' pk=product.pk %}">
+    {% csrf_token%}
+    <button>DELETE</button>
+  </form>
+</div>
 {% endblock %}

@@ -3,3 +3,4 @@ db.sqlite3*
 tiko/__pycache__/
 tiko/migrations/__pycache__/
 project/__pycache__/
+media/

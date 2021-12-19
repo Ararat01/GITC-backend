@@ -12,7 +12,17 @@
     <title>{% block title %}My Site{% endblock %}</title>
 </head>
 <body>
-
+    {% if not request.user.is_authenticated %}
+        <div style="display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 70px;">
+            <div><h2>LOGO</h2></div>
+            <div><a href="{% url 'login' %}">LOG IN</a></div>
+        </div>
+    {% else %}
+        <p>lll</p>
+    {% endif %}
     {% block content %}{% endblock %}
     
 </body>
