@@ -1,7 +1,6 @@
 * {
 	box-sizing: border-box;
 }
-
 .det_h2 {
 	color: hsl(240, 76%, 42%);
 	font-family: 'Roboto';
@@ -35,26 +34,26 @@
 	border-radius: 30px;
 	box-shadow: 0px 0px 20px 0px;
 }
-.list_form label, .upd_form label {
+label {
 	font-family: 'Roboto';
 	font-weight: 300;
 	font-size: 25px;
 	color: white;
 }
-.list_form input, .upd_form input {
+input {
 	height: 30px;
 	border-radius: 5px;
 	border: none;
 	padding: 10px;
 	margin-left: 10px;
 }
-.list_form textarea, .upd_form textarea {
+textarea {
 	padding: 10px;
 	width: 100%;
 	border-radius: 5px;
 	border: none;
 }
-.list_form button, .upd_form button {
+button {
 	width: 100%;
 	padding: 15px 20px;
 	font-family: 'Roboto';
@@ -67,12 +66,12 @@
 	background-color: white;
 	transition: 0.3s;
 }
-.list_form button:hover, .upd_form button:hover {
+button:hover {
 	transition: 0.3s;
 	color: white;
 	background-color: hsl(240, 76%, 42%);
 }
-.list_list a {
+.atag {
 	display: inline-block;
     text-decoration: none;
 	font-family: 'Roboto';
@@ -80,7 +79,7 @@
 	font-size: 35px;
 	color: hsl(240, 76%, 42%);
 }
-.list_list a::after {
+.atag::after {
 	content: '';
     display: block;
     width: 0;
@@ -88,7 +87,7 @@
     background: hsl(240, 76%, 42%);
     transition: width .3s;
 }
-.list_list a:hover::after {
+.atag:hover::after {
     width: 100%;
     transition: width .3s;
 }
@@ -100,7 +99,7 @@
 	display: inline-block;
 }
 
-.actions_form button, .actions_form a {
+button, a {
 	text-decoration: none;
 	text-align: center;
 	padding: 5px 30px;
@@ -121,7 +120,7 @@
 		justify-content: space-between;
 		flex-wrap: wrap;
 	}
-	.actions_form button, .actions_form a {
+	button, a {
 		margin-bottom: 10px;
 		padding:5px 15px;
 	}
@@ -132,11 +131,11 @@
 		align-content: center
 	}
 }
-.actions_form a:hover {
+a:hover {
 	transition: 0.3s;
 	color: white;
 }
-.actions_form button:hover, .actions_form a:hover {
+button:hover {
 	transition: 0.3s;
 	color: white;
 	background-color: hsl(240, 76%, 42%);
