@@ -8,21 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
     <title>{% block title %}My Site{% endblock %}</title>
 </head>
 <body>
-    {% if not request.user.is_authenticated %}
-        <div style="display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px 70px;">
-            <div><h2>LOGO</h2></div>
-            <div><a href="{% url 'login' %}">LOG IN</a></div>
-        </div>
-    {% else %}
-        <p>lll</p>
-    {% endif %}
+    {% include 'header.html' %}
+    
     {% block content %}{% endblock %}
     
 </body>

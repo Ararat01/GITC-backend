@@ -1,9 +1,10 @@
 from django.http import Http404, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Product
 from django.urls import reverse, reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView
+from django.contrib.auth import logout
 
 
 class ProductsList(ListView):
@@ -45,3 +46,8 @@ class ProductUpdateView(UpdateView):
 
 class LogIn(LoginView):
     template_name = 'login.html'
+    # success_url = reverse_lazy('main') settings.py login_rederict
+
+def logout_user(request):
+    logout(request)
+    return redirect('login')

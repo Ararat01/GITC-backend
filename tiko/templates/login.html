@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% block title %}Title{% endblock %}
 {% block content %}
 {{form.errors}}
-    <form action="" method="POST" style="background-color: blue; padding:20px; text-align: center;">
+    <form action="" method="POST">
         {% csrf_token %}
         <div>
             {{ form.username.label_tag }} {{ form.username }}

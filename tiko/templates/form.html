@@ -1,5 +1,5 @@
 <form class="list_form" action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button style="padding: 10px 70px;" type="submit">{{ submit }}</button>
+    <button type="submit">{{ submit }}</button>
 </form>
