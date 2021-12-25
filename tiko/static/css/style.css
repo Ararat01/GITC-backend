@@ -73,7 +73,13 @@ body {
 }
 .list_form ul li {
 	color: #ff3838;
-	font-size: 8px;
+	font-size: 12px;
+	list-style: none;
+	margin: 5px 0;
+}
+.list_form span {
+	color: #fff;
+	font-size: 12px;
 	list-style: none;
 	margin: 5px 0;
 }

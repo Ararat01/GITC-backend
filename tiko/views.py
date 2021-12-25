@@ -1,3 +1,5 @@
+from django.contrib import auth
+from django.contrib.auth.forms import UserCreationForm
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from .models import Product
@@ -5,6 +7,7 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import logout
+from django.contrib.auth.forms import UserCreationForm
 
 
 class ProductsList(ListView):
@@ -51,3 +54,8 @@ class LogIn(LoginView):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
+class RegisterUser(CreateView):
+    form_class = UserCreationForm
+    template_name = 'register.html'
+    success_url = reverse_lazy('main')

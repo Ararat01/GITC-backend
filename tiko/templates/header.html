@@ -2,7 +2,7 @@
 <div class="toolbar">
     {% if not request.user.is_authenticated %}
         <div><h2><a href="{% url 'main' %}">MyFirst</a></h2></div>
-        <div><a href="{% url 'login' %}">LOGIN</a><span>or</span><a href="#">REGISTER</a></div>
+        <div><a href="{% url 'login' %}">LOGIN</a><span>or</span><a href="{% url 'register' %}">REGISTER</a></div>
     {% else %}
         <div><h2><a href="{% url 'main' %}">MyFirst</a></h2></div>
         <div><a href="{% url 'logout' %}">LOG OUT</a></div>

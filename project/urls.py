@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from tiko.views import ProductsList, ProductsDetailView, ProductCreateView, ProductDeleteView, ProductUpdateView, LogIn, logout_user
+from tiko.views import ProductsList, ProductsDetailView, ProductCreateView, ProductDeleteView, ProductUpdateView, LogIn, logout_user, RegisterUser
 from tiko import views
 from project import settings
 from django.conf.urls.static import static
@@ -29,6 +29,7 @@ urlpatterns = [
     path('main/<int:pk>/update/', ProductUpdateView.as_view(), name = 'update'),
     path('main/login/', LogIn.as_view(), name = 'login'),
     path('logout/', logout_user, name = 'logout'),
+    path('register/', RegisterUser.as_view(), name = 'register'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
