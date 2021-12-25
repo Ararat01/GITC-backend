@@ -4,13 +4,24 @@
 
 {% block content %}
 
-    {% if latest_products_list %}
+{% if latest_products_list %}
+    <h2 class="list__products_h2">PRODUCTS</h2>
+    <div class="prod_list">
         {% for a in latest_products_list %}
-            <p class="list_list"><a href="{% url 'detail' pk=a.id %}">{{a.name}}</a></p>
+            <div class="prod_list_item">
+                <div class="div_img">
+                    <a href="{% url 'detail' pk=a.id %}"><img  src="{% get_media_prefix %}{{a.image}}" width="300px" alt=""></a>
+                </div>
+                <div class="list_item_name"><a href="{% url 'detail' pk=a.id %}">{{a.name}}</a></div>
+                <div class="price">{{a.product_price}}</div>
+            </div>
+            
         {% endfor %}
-    {% else %}
-        No products yet 
-    {% endif %}
-    <a href="{% url 'save' %}">Add new product</a>
+    </div>
+
+{% else %}
+    <h2 class="list__products_h2">NO PRODUCTS YET</h2>
+{% endif %}
+<a class="addnew" href="{% url 'save' %}">Add new product</a>
 
 {% endblock %}

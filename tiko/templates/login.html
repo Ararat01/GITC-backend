@@ -2,8 +2,8 @@
 {% load static %}
 {% block title %}Title{% endblock %}
 {% block content %}
-{{form.errors}}
-    <form action="" method="POST">
+
+    <form class="list_form" action="" method="POST">
         {% csrf_token %}
         <div>
             {{ form.username.label_tag }} {{ form.username }}
@@ -12,7 +12,7 @@
         <div>
             {{ form.password.label_tag }} {{ form.password }} 
         </div>
-        <br>
+        {{form.non_field_errors}}
         <button type="submit">LOGIN</button>
     </form>
 {% endblock %}

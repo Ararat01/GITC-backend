@@ -3,20 +3,24 @@
 {% block title %}{{product.name}}{% endblock %}
 
 {% block content %}
-<div id="info_div">
-  <img src="{% get_media_prefix %}{{product.image}}" width="200px" alt="">
-  <h2 class="det_h2">{{product.name}}</h2>
-
-  <p class="det_p">{{product.product_info}}</p>
-
-  <h3 class="det_h3">{{product.product_price}}</h3>
-  <div class="date">
-    <em class="date_em">Crate Date: {{product.created_at}}</em>
-    {% if product.creat_equal_update == False %}
-    <em class="date_em">Upadate Date: {{product.updated_at}}</em>
-    {% endif %}
+<div class="detail">
+  <div class="img_prev">
+    <img src="{% get_media_prefix %}{{product.image}}" width="200px" alt="">
   </div>
-  <br><br>
+  <div class="detail_info">
+    <h2 class="det_name">{{product.name}}</h2>
+    <p class="det_info">{{product.product_info}}</p>
+    <h3 class="det_price">{{product.product_price}}</h3>
+    <div class="date">
+      <em class="date_em">Crate Date: {{product.created_at}}</em>
+      {% if product.creat_equal_update == False %}
+      <br>
+      <em class="date_em">Upadate Date: {{product.updated_at}}</em>
+      {% endif %}
+    </div>
+  </div>
+</div>
+<div class="actions">
   <a class="atag" href="{%url 'main' %}">BACK</a>
   <a href="{% url 'update' pk=product.pk %}">UPDATE</a>
   <form method="POST" action="{% url 'del' pk=product.pk %}">
