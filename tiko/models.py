@@ -31,3 +31,7 @@ class Product(models.Model):
 class Users(AbstractUser):
     class Meta:
         abstract = False
+        verbose_name = 'User'
+        verbose_name_plural = 'Users'
+
+    

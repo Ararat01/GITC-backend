@@ -8,6 +8,10 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView,
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.edit import FormView
+from tiko.forms import UserSignupForm
+from django.contrib.auth import get_user_model
+
 
 
 class ProductsList(ListView):
@@ -55,7 +59,15 @@ def logout_user(request):
     logout(request)
     return redirect('login')
 
-class RegisterUser(CreateView):
-    form_class = UserCreationForm
+class RegisterUser(FormView):
+    form_class = UserSignupForm
     template_name = 'register.html'
     success_url = reverse_lazy('main')
+
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        user = get_user_model()()
+        user.username = form.cleaned_data['username']
+        user.set_password(form.cleaned_data['password1'])
+        user.save()
+        return super().form_valid(form)
