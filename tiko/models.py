@@ -1,10 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.contrib.auth import get_user_model
 
 def product_image_directory(instance, filename):
     return f'products/{instance.name}-{filename}'
 
 class Product(models.Model):
+    author = models.ForeignKey('tiko.Users', on_delete=models.PROTECT)
     name = models.CharField(max_length=50)
     product_info = models.TextField()
     product_price =  models.CharField(max_length=15)
